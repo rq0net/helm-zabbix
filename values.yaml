@@ -35,6 +35,7 @@ zabbixserver:
     type: ClusterIP
     # -- Cluster IP for Zabbix server
     clusterIP: 
+    loadBalancerIP:
     # -- Port of service in Kubernetes cluster
     port: 10051
   # -- Extra environment variables. A list of additional environment variables. See example: https://github.com/cetic/helm-zabbix/blob/master/docs/example/minikube/values.yaml

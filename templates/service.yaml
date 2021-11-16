@@ -14,6 +14,9 @@ spec:
   {{- if .Values.zabbixserver.service.clusterIP }}
   clusterIP: {{ .Values.zabbixserver.service.clusterIP }}
   {{- end }}
+  {{- if .Values.zabbixserver.service.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.zabbixserver.service.loadBalancerIP }}
+  {{- end }}
   ports:
     - port: {{ .Values.zabbixserver.service.port }}
       targetPort: 10051
@@ -42,6 +45,9 @@ spec:
   {{- if .Values.zabbixagent.service.clusterIP }}
   clusterIP: {{ .Values.zabbixagent.service.clusterIP }}
   {{- end }}
+  {{- if .Values.zabbixserver.service.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.zabbixserver.service.loadBalancerIP }}
+  {{- end }}
   ports:
     - port: {{ .Values.zabbixagent.service.port }}
       targetPort: 10050
@@ -67,6 +73,9 @@ spec:
   {{- if .Values.zabbixweb.service.clusterIP }}
   clusterIP: {{ .Values.zabbixweb.service.clusterIP }}
   {{- end }}
+  {{- if .Values.zabbixserver.service.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.zabbixserver.service.loadBalancerIP }}
+  {{- end }}
   ports:
     - port: {{ .Values.zabbixweb.service.port }}
       targetPort: 8080
@@ -91,6 +100,9 @@ spec:
   type: {{ .Values.zabbixproxy.service.type }}
   {{- if .Values.zabbixproxy.service.clusterIP }}
   clusterIP: {{ .Values.zabbixproxy.service.clusterIP }}
+  {{- end }}
+  {{- if .Values.zabbixserver.service.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.zabbixserver.service.loadBalancerIP }}
   {{- end }}
   ports:
     - port: {{ .Values.zabbixproxy.service.port }}
